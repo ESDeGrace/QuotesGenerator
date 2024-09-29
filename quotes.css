@@ -1,66 +1,46 @@
-body {
-  font-family: Playfair Display;
-  background-color: #712735;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+const quotes = [
+    "In order to rise From its own ashes A phoenix First must Burn. - Octavia E. Butler, Parable of the Talents",
+    "When your rage is choking you, it is best to say nothing. - Octavia E. Butler, Fledgling",
+    "All that you touch You Change. All that you Change Changes you. The only lasting truth is Change. God is Change. - Octavia E. Butler",
+    "First forget inspiration. Habit is more dependable. Habit will sustain you whether you're inspired or not. Habit will help you finish and polish your stories. Inspiration won't. Habit is persistence in practice. - Octavia E. Butler, Bloodchild",
+    "You don't start out writing good stuff. You start out writing crap and thinking it's good stuff, and then gradually you get better at it. That's why I say one of the most valuable traits is persistence. - Octavia E. Butler",
+    "There is nothing new under the sun, but there are new suns. - Octavia E. Butler",
+    "The world is full of painful stories. Sometimes it seems as though there aren't any other kind and yet I found myself thinking how beautiful that glint of water was through the trees. - Octavia E. Butler, Parable of the Sower"
+];
+
+const quoteDisplay = document.getElementById('quote-display');
+const newQuoteButton = document.getElementById('new-quote-button');
+const quoteForm = document.getElementById('quote-form');
+const quoteInput = document.getElementById('quote-input');
+const submittedQuotesDiv = document.getElementById('submitted-quotes');
+
+// Function to display a random quote
+function displayRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteDisplay.textContent = quotes[randomIndex];
 }
 
-.container {
-  max-width: 40%;
-  /* width: 3000px; */
-  height: 50vh;
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+// Add event listener to the "New Quote" button
+newQuoteButton.addEventListener('click', displayRandomQuote);
 
-h1 {
-  color: #333;
-}
+// Add functionality to submit new quotes, but only display one at a time
+quoteForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from refreshing the page
+    const newQuote = quoteInput.value;
 
-.quote-display {
-  font-size: 1.5em;
-  margin: 20px 0;
-  color: #555;
-}
+    if (newQuote) {
+        // Clear any previous submitted quotes
+        submittedQuotesDiv.innerHTML = '';
 
-button {
-  background-color: #5a67d8;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+        // Add the new quote to the list and display it
+        quotes.push(newQuote);
+        quoteInput.value = ''; // Clear the input field
 
-button:hover {
-  background-color: #434190;
-}
+        const newQuoteElement = document.createElement('p');
+        newQuoteElement.textContent = `"${newQuote}" - Submitted Quote`;
+        submittedQuotesDiv.appendChild(newQuoteElement);
+    }
+});
 
-form {
-  margin-top: 0px;
-  width: 500px;
-}
-
-input[type="text"] {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.submitted-quotes {
-  margin-top: 20px;
-  font-style: italic;
-  color: #666;
-}
+// Display an initial random quote on page load
+window.onload = displayRandomQuote;
