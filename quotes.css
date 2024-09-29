@@ -1,65 +1,66 @@
 body {
-    font-family: Playwrite DE Grund, sans-serif;
-    background-color: #712735;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+  font-family: Playfair Display;
+  background-color: #712735;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .container {
-    max-width: 40%;
-    /* width: 3000px; */
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 40%;
+  /* width: 3000px; */
+  height: 50vh;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
+  color: #333;
 }
 
 .quote-display {
-    font-size: 1.5em;
-    margin: 20px 0;
-    color: #555;
+  font-size: 1.5em;
+  margin: 20px 0;
+  color: #555;
 }
 
 button {
-    background-color: #5a67d8;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #5a67d8;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #434190;
+  background-color: #434190;
 }
 
 form {
-    margin-top: 0px;
-    width: 500px;
+  margin-top: 0px;
+  width: 500px;
 }
 
 input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .submitted-quotes {
-    margin-top: 20px;
-    font-style: italic;
-    color: #666;
+  margin-top: 20px;
+  font-style: italic;
+  color: #666;
 }

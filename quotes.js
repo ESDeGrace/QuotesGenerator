@@ -1,9 +1,11 @@
 const quotes = [
-    "The only way to do great work is to love what you do. - Steve Jobs",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "You only live once, but if you do it right, once is enough. - Mae West",
-    "In the end, we will remember not the words of our enemies, but the silence of our friends. - Martin Luther King Jr."
+    "In order to rise From its own ashes A phoenix First must Burn. - Octavia E. Butler, Parable of the Talents",
+    "When your rage is choking you, it is best to say nothing. - Octavia E. Butler, Fledgling",
+    "All that you touch You Change. All that you Change Changes you. The only lasting truth is Change. God is Change. - Octavia E. Butler",
+    "First forget inspiration. Habit is more dependable. Habit will sustain you whether you're inspired or not. Habit will help you finish and polish your stories. Inspiration won't. Habit is persistence in practice. - Octavia E. Butler, Bloodchild",
+    "You don't start out writing good stuff. You start out writing crap and thinking it's good stuff, and then gradually you get better at it. That's why I say one of the most valuable traits is persistence. - Octavia E. Butler",
+    "There is nothing new under the sun, but there are new suns. - Octavia E. Butler",
+    "The world is full of painful stories. Sometimes it seems as though there aren't any other kind and yet I found myself thinking how beautiful that glint of water was through the trees. - Octavia E. Butler, Parable of the Sower",
 ];
 
 const quoteDisplay = document.getElementById('quote-display');
@@ -17,3 +19,22 @@ function displayRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteDisplay.textContent = quotes[randomIndex];
 }
+
+// Add event listener to the "New Quote" button
+newQuoteButton.addEventListener('click', displayRandomQuote);
+
+// Optional: Add functionality to submit new quotes
+quoteForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from refreshing the page
+    const newQuote = quoteInput.value;
+    if (newQuote) {
+        quotes.push(newQuote);
+        quoteInput.value = ''; // Clear the input field
+        const newQuoteElement = document.createElement('p');
+        newQuoteElement.textContent = `"${newQuote}" - Submitted Quote`;
+        submittedQuotesDiv.appendChild(newQuoteElement);
+    }
+});
+
+// Display an initial random quote on page load
+window.onload = displayRandomQuote;
